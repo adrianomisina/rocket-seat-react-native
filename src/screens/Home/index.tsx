@@ -1,10 +1,16 @@
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import Participant from '../../components/Participant';
 import { styles } from './styles'
 
 const Home = () => {
   const handleParticipantAdd = () => {
     console.log('você clicou no botão de Adicionar!')
   }
+
+  const handleParticipantRemove = (name:string) => {
+    console.log(`Você clicou em remover o participante ${name}`);
+  }
+  
 
   return (
     <View style={styles.container}>
@@ -28,6 +34,8 @@ const Home = () => {
           </Text>
         </TouchableOpacity>
       </View>
+
+      <Participant name="Adriano" onRemove={()=> handleParticipantRemove("Adriano")} />
     </View>
   )
 }
